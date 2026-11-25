@@ -1,0 +1,73 @@
+// Pre-made kits. Components are referenced by slug; prices are computed at seed time
+// as the sum of component prices minus a bundle discount, so the kit always matches the catalogue.
+
+export const KIT_DISCOUNT = 0.12; // 12 % bundle saving
+
+export const kitDefs = [
+  {
+    slug: 'beginner-plant-kit',
+    name: 'Beginner Plant Kit',
+    subcategory: 'Beginner Kit',
+    shortDescription: 'Two bulletproof plants, pots, soil and a mister – everything for your first green corner.',
+    description: 'The easiest way to start: a Snake Plant and a Golden Pothos – two of the most forgiving houseplants – with a set of three terracotta pots, premium potting mix and a fine-mist bottle.',
+    items: [['snake-plant', 1], ['golden-pothos', 1], ['terracotta-pot-set', 1], ['premium-potting-mix', 1], ['fine-mist-spray-bottle', 1]],
+    difficulty: 'easy', rooms: ['bedroom', 'living-room', 'study', 'office'], spaces: ['small-shelf', 'medium-room'],
+    placement: 'indoor', tags: ['kit', 'beginner', 'low light', 'starter', 'gift', 'hostel friendly'],
+    featured: true, rating: 4.8, numReviews: 154, popularity: 610, image: 'beginner-plant-kit',
+  },
+  {
+    slug: 'desk-plant-kit',
+    name: 'Desk Plant Kit',
+    subcategory: 'Desk Kit',
+    shortDescription: 'Three compact, pet-safe plants for a small desk – with a ceramic planter and cactus mix.',
+    description: 'Compact plants that love a desk: Watermelon Peperomia, Zebra Haworthia and Echeveria Elegans, plus a matte white ceramic planter and a bag of gritty cactus mix for the succulents. All three plants are listed as non-toxic to cats and dogs.',
+    items: [['peperomia-watermelon', 1], ['haworthia-zebra', 1], ['echeveria-elegans', 1], ['ceramic-planter-white', 1], ['cactus-succulent-mix', 1]],
+    difficulty: 'easy', rooms: ['study', 'office', 'bedroom'], spaces: ['small-desk', 'small-shelf'],
+    placement: 'indoor', tags: ['kit', 'desk plant', 'pet safe', 'compact', 'gift', 'hostel friendly'],
+    featured: true, rating: 4.7, numReviews: 118, popularity: 480, image: 'desk-plant-kit',
+  },
+  {
+    slug: 'balcony-garden-kit',
+    name: 'Balcony Garden Kit',
+    subcategory: 'Balcony Kit',
+    shortDescription: 'A sunny kitchen-herb garden: tulsi, mint, basil, a planter box and compost.',
+    description: 'Grow your own herbs: Tulsi, Mint and Sweet Basil plants, a 60 cm wooden balcony planter box, organic vermicompost and a long-spout watering can. Needs 5–6 hours of sun.',
+    items: [['tulsi-holy-basil', 1], ['mint-pudina', 1], ['basil-sweet', 1], ['wooden-balcony-planter', 1], ['organic-vermicompost', 1], ['long-spout-watering-can', 1]],
+    difficulty: 'easy', rooms: ['balcony'], spaces: ['balcony'],
+    placement: 'outdoor', tags: ['kit', 'balcony', 'herbs', 'kitchen garden', 'edible'],
+    featured: true, rating: 4.6, numReviews: 87, popularity: 330, image: 'balcony-garden-kit',
+  },
+  {
+    slug: 'indoor-jungle-starter-kit',
+    name: 'Indoor Jungle Starter Kit',
+    subcategory: 'Jungle Kit',
+    shortDescription: 'Four lush plants plus soil, plant food and a moisture meter for an instant urban jungle.',
+    description: 'Monstera, Golden Pothos, Spider Plant and ZZ Plant – a lush, layered mix of textures – plus premium potting mix, liquid plant food and a moisture meter to keep them thriving.',
+    items: [['monstera-deliciosa', 1], ['golden-pothos', 1], ['spider-plant', 1], ['zz-plant', 1], ['premium-potting-mix', 1], ['liquid-plant-food', 1], ['soil-moisture-meter', 1]],
+    difficulty: 'moderate', rooms: ['living-room', 'office', 'bedroom'], spaces: ['medium-room', 'large-floor'],
+    placement: 'indoor', tags: ['kit', 'indoor jungle', 'statement', 'starter'],
+    featured: true, rating: 4.7, numReviews: 96, popularity: 280, image: 'indoor-jungle-starter-kit',
+  },
+  {
+    slug: 'succulent-collection',
+    name: 'Succulent Collection',
+    subcategory: 'Succulent Kit',
+    shortDescription: 'Five sun-loving succulents with terracotta pots and a gritty mix.',
+    description: 'Aloe Vera, Jade Plant, Echeveria, Zebra Haworthia and Burro’s Tail, with a set of three terracotta pots and cactus & succulent mix. A sunny-window collection that thrives on neglect.',
+    items: [['aloe-vera', 1], ['jade-plant', 1], ['echeveria-elegans', 1], ['haworthia-zebra', 1], ['burros-tail', 1], ['terracotta-pot-set', 1], ['cactus-succulent-mix', 1]],
+    difficulty: 'easy', rooms: ['study', 'living-room', 'balcony', 'office'], spaces: ['small-shelf', 'medium-room', 'balcony'],
+    placement: 'both', tags: ['kit', 'succulents', 'sun lover', 'low maintenance', 'gift'],
+    featured: true, rating: 4.8, numReviews: 142, popularity: 520, image: 'succulent-collection',
+  },
+  {
+    slug: 'plant-gift-kit-peace-lily',
+    name: 'Plant Gift Kit – Peace Lily',
+    subcategory: 'Gift Kit',
+    shortDescription: 'A gift-ready Peace Lily with a ceramic planter, mister and plant food.',
+    description: 'A thoughtful gift: a flowering Peace Lily, a matte white ceramic planter, a fine-mist bottle and liquid plant food, ready to display. Note: peace lilies are toxic to pets, so check before gifting to pet owners.',
+    items: [['peace-lily', 1], ['ceramic-planter-white', 1], ['fine-mist-spray-bottle', 1], ['liquid-plant-food', 1]],
+    difficulty: 'easy', rooms: ['living-room', 'bedroom', 'office'], spaces: ['small-shelf', 'medium-room'],
+    placement: 'indoor', tags: ['kit', 'gift', 'flowering', 'housewarming'],
+    featured: false, rating: 4.6, numReviews: 63, popularity: 210, image: 'plant-gift-kit-peace-lily',
+  },
+];

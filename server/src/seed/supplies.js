@@ -1,0 +1,208 @@
+// Gardening supplies: seeds, pots & planters, tools, soil & fertiliser, accessories. Prices in INR.
+// Ratings / review counts / sales are DEMO data for the sample storefront.
+
+const base = { isPlant: false, petSafe: 'na', placement: 'na', stock: 40 };
+
+const item = (slug, name, price, originalPrice, category, subcategory, role, o) => ({
+  ...base,
+  slug,
+  name,
+  price,
+  originalPrice,
+  category,
+  subcategory,
+  ...o,
+  supply: { role, ...(o.supply || {}) },
+});
+
+export const supplies = [
+  // ───────────── SEEDS ─────────────
+  item('cherry-tomato-seeds', 'Cherry Tomato Seeds (30 seeds)', 99, 129, 'seeds', 'Vegetable Seeds', 'seed', {
+    botanicalName: 'Solanum lycopersicum var. cerasiforme',
+    shortDescription: 'Sweet, prolific cherry tomatoes for pots and balconies.',
+    description: 'A compact, high-yield variety that does well in large pots on a sunny balcony. Sow indoors, transplant when seedlings have 4–6 true leaves, and give it a stake.',
+    tags: ['seeds', 'vegetable', 'edible', 'balcony', 'kitchen garden'],
+    image: '', featured: false, rating: 4.4, numReviews: 88, popularity: 410, stock: 120,
+    compatibility: { pairsWith: ['basil-sweet', 'wooden-balcony-planter', 'organic-vermicompost'], notes: 'Plant basil nearby – a classic pairing.' },
+    care: { watering: 'Keep soil evenly moist; water at the base.', light: '6+ hours of direct sun.', soil: 'Rich, loamy potting mix with compost.', tips: ['Sow 0.5 cm deep; germination in 5–10 days at 22–28 °C.', 'Harvest in about 70–85 days.'] },
+  }),
+  item('marigold-seeds', 'Marigold Flower Seeds (50 seeds)', 79, 99, 'seeds', 'Flower Seeds', 'seed', {
+    botanicalName: 'Tagetes erecta',
+    shortDescription: 'Cheerful orange-yellow blooms that are easy to grow from seed.',
+    description: 'One of the easiest flowers to start from seed. Sow directly in a pot or bed and enjoy blooms in about 8 weeks.',
+    tags: ['seeds', 'flowers', 'beginner', 'balcony', 'sun lover'],
+    image: '', featured: false, rating: 4.5, numReviews: 64, popularity: 370, stock: 150,
+    compatibility: { pairsWith: ['terracotta-pot-set', 'premium-potting-mix'], notes: 'Plant near vegetables to brighten the garden.' },
+    care: { watering: 'Water when the top 1 cm of soil is dry.', light: 'Full sun.', soil: 'Any well-draining potting mix.', tips: ['Sow 1 cm deep; seeds sprout in 4–7 days.', 'Deadhead spent flowers for more blooms.'] },
+  }),
+  item('sweet-basil-seeds', 'Sweet Basil Seeds (100 seeds)', 69, 89, 'seeds', 'Herb Seeds', 'seed', {
+    botanicalName: 'Ocimum basilicum',
+    shortDescription: 'Aromatic basil you can sow all year in warm climates.',
+    description: 'Basil is one of the quickest herbs to grow from seed. Sow thickly in a shallow pot on a sunny windowsill and thin as the seedlings grow.',
+    tags: ['seeds', 'herb', 'edible', 'beginner', 'kitchen garden'],
+    image: '', featured: false, rating: 4.3, numReviews: 52, popularity: 330, stock: 160,
+    compatibility: { pairsWith: ['terracotta-pot-set', 'premium-potting-mix', 'cherry-tomato-seeds'], notes: 'Pairs well with tomatoes.' },
+    care: { watering: 'Keep the surface lightly moist until germination.', light: 'Bright light, 5–6 hours of sun.', soil: 'Light, well-draining potting mix.', tips: ['Germinates in 5–10 days.', 'Start pinching tips when plants reach 15 cm.'] },
+  }),
+  item('microgreens-seed-mix', 'Microgreens Seed Mix (50 g)', 129, 159, 'seeds', 'Microgreens', 'seed', {
+    shortDescription: 'A mix of mustard, radish and fenugreek for 7-day harvests.',
+    description: 'Fast, nutritious greens grown on a windowsill in a shallow tray. Perfect for hostel rooms, small flats and impatient gardeners.',
+    tags: ['seeds', 'microgreens', 'edible', 'beginner', 'hostel friendly', 'fast growing'],
+    image: '', featured: true, rating: 4.6, numReviews: 97, popularity: 450, stock: 90,
+    compatibility: { pairsWith: ['premium-potting-mix', 'fine-mist-spray-bottle'], notes: 'Use a shallow tray and a mist bottle.' },
+    care: { watering: 'Mist twice a day.', light: 'Bright indirect light.', soil: 'A thin layer of potting mix or cocopeat.', tips: ['Cover with a lid for the first 2–3 days.', 'Harvest in 7–10 days with scissors.'] },
+  }),
+
+  // ───────────── POTS & PLANTERS ─────────────
+  item('terracotta-pot-set', 'Terracotta Pot Set (3 pcs)', 449, 549, 'pots-planters', 'Pots', 'pot', {
+    shortDescription: 'Classic breathable clay pots in three sizes with drainage holes.',
+    description: 'Natural terracotta wicks moisture from the soil, helping prevent overwatering – ideal for succulents, snake plants and herbs. Includes 10 cm, 13 cm and 16 cm pots with drainage holes and saucers.',
+    tags: ['pot', 'terracotta', 'drainage', 'succulents', 'beginner'],
+    image: '', featured: true, rating: 4.6, numReviews: 233, popularity: 840, stock: 75,
+    supply: { diameterMinCm: 10, diameterMaxCm: 16, hasDrainage: true, material: 'terracotta', suitableFor: ['succulents', 'herbs', 'low-water plants'] },
+    compatibility: { pairsWith: ['snake-plant', 'aloe-vera', 'jade-plant', 'cactus-succulent-mix'], notes: 'Breathable clay dries quickly – best for plants that like to dry out.' },
+    care: { tips: ['Soak new terracotta in water for an hour before planting.', 'Place on saucers to protect furniture.'] },
+  }),
+  item('ceramic-planter-white', 'Matte White Ceramic Planter (15 cm)', 549, 649, 'pots-planters', 'Planters', 'pot', {
+    shortDescription: 'A clean, minimal planter with a bamboo saucer – perfect for desks.',
+    description: 'A glazed matte-white ceramic planter with a drainage hole and matching saucer. Fits plants in 12 cm nursery pots comfortably.',
+    tags: ['planter', 'ceramic', 'desk', 'drainage', 'gift'],
+    image: '', featured: true, rating: 4.7, numReviews: 141, popularity: 520, stock: 48,
+    supply: { diameterMinCm: 15, diameterMaxCm: 15, hasDrainage: true, material: 'ceramic', suitableFor: ['desk plants', 'small plants'] },
+    compatibility: { pairsWith: ['peperomia-watermelon', 'haworthia-zebra', 'lucky-bamboo', 'peace-lily'], notes: 'Holds moisture a little longer than terracotta.' },
+    care: { tips: ['Empty the saucer 30 minutes after watering.'] },
+  }),
+  item('self-watering-planter', 'Self-Watering Planter (18 cm)', 699, 799, 'pots-planters', 'Planters', 'pot', {
+    shortDescription: 'A built-in reservoir keeps thirsty plants steadily moist for up to two weeks.',
+    description: 'A water reservoir feeds the soil from below through a wick, so busy owners and moisture-loving plants such as peace lilies, ferns and herbs stay happy between waterings.',
+    tags: ['planter', 'self-watering', 'low maintenance', 'busy owners', 'humidity lover'],
+    image: '', featured: false, rating: 4.4, numReviews: 76, popularity: 290, stock: 33,
+    supply: { diameterMinCm: 18, diameterMaxCm: 18, hasDrainage: true, material: 'recycled plastic', suitableFor: ['moisture-lovers', 'herbs', 'busy owners'] },
+    compatibility: { pairsWith: ['peace-lily', 'boston-fern', 'mint-pudina', 'premium-potting-mix'], notes: 'Not suitable for succulents or cacti – they hate constant moisture.' },
+    care: { tips: ['Refill the reservoir when the level indicator drops.', 'Flush the soil with fresh water once a month.'] },
+  }),
+  item('hanging-basket-planter', 'Hanging Basket Planter with Hook (20 cm)', 399, 449, 'pots-planters', 'Planters', 'pot', {
+    shortDescription: 'A coir-lined hanging basket for trailing plants.',
+    description: 'Coconut-coir-lined basket with a sturdy metal chain and ceiling hook. Ideal for pothos, spider plants and burro’s tail near a window.',
+    tags: ['planter', 'hanging', 'trailing', 'balcony'],
+    image: '', featured: false, rating: 4.2, numReviews: 58, popularity: 220, stock: 36,
+    supply: { diameterMinCm: 20, diameterMaxCm: 20, hasDrainage: true, material: 'coir & metal', suitableFor: ['trailing plants'] },
+    compatibility: { pairsWith: ['golden-pothos', 'spider-plant', 'burros-tail'], notes: 'Hang where drips are not a problem.' },
+    care: { tips: ['Check the hook can carry at least 5 kg when wet.'] },
+  }),
+  item('wooden-balcony-planter', 'Wooden Balcony Planter Box (60 cm)', 1299, 1499, 'pots-planters', 'Planters', 'pot', {
+    shortDescription: 'A long, deep planter box for herbs, flowers and vegetables.',
+    description: 'Treated wooden box with drainage holes and a waterproof liner – sized for a balcony rail or floor. Holds roughly 25 litres of soil.',
+    tags: ['planter', 'balcony', 'herbs', 'vegetables', 'large'],
+    image: '', featured: true, rating: 4.5, numReviews: 69, popularity: 240, stock: 20,
+    supply: { diameterMinCm: 25, diameterMaxCm: 60, hasDrainage: true, material: 'treated wood', suitableFor: ['herbs', 'flowers', 'balcony gardens'] },
+    compatibility: { pairsWith: ['tulsi-holy-basil', 'mint-pudina', 'basil-sweet', 'organic-vermicompost'], notes: 'Plant mint in its own pot – it takes over boxes.' },
+    care: { tips: ['Place on feet so water can drain.', 'Re-oil the wood each season.'] },
+  }),
+
+  // ───────────── GARDENING TOOLS ─────────────
+  item('pruning-shears', 'Precision Pruning Shears', 349, 399, 'gardening-tools', 'Hand Tools', 'tool', {
+    shortDescription: 'Sharp, rust-resistant bypass shears for clean cuts.',
+    description: 'Stainless-steel blades with a comfortable non-slip grip and safety lock. Perfect for trimming herbs, shaping houseplants and deadheading flowers.',
+    tags: ['tools', 'pruning', 'trimming', 'hand tool'],
+    image: '', featured: false, rating: 4.5, numReviews: 112, popularity: 380, stock: 55,
+    compatibility: { pairsWith: ['miniature-rose', 'curry-leaf-plant', 'golden-pothos'], notes: 'Wipe the blades with alcohol between plants.' },
+    care: { tips: ['Clean and dry after each use to prevent rust.'] },
+  }),
+  item('trowel-fork-set', 'Hand Trowel & Fork Set', 399, 449, 'gardening-tools', 'Hand Tools', 'tool', {
+    shortDescription: 'Two sturdy tools for planting, repotting and weeding.',
+    description: 'A matching trowel and hand fork with ergonomic wooden handles – your essential repotting duo.',
+    tags: ['tools', 'repotting', 'planting', 'hand tool'],
+    image: '', featured: false, rating: 4.4, numReviews: 95, popularity: 310, stock: 48,
+    compatibility: { pairsWith: ['premium-potting-mix', 'terracotta-pot-set'], notes: 'Useful for every repotting job.' },
+    care: { tips: ['Rinse off soil after use and hang to dry.'] },
+  }),
+  item('long-spout-watering-can', 'Long-Spout Watering Can (1.5 L)', 449, 499, 'gardening-tools', 'Watering Tools', 'tool', {
+    shortDescription: 'A slim spout that reaches under leaves and into dense foliage.',
+    description: 'A 1.5-litre metal-finish watering can with a long narrow spout for precise watering at the base of the plant – minimising splashed leaves and over-wetting.',
+    tags: ['watering', 'watering can', 'tools', 'indoor plants', 'balcony'],
+    image: '', featured: true, rating: 4.6, numReviews: 184, popularity: 520, stock: 62,
+    compatibility: { pairsWith: ['monstera-deliciosa', 'african-violet', 'soil-moisture-meter'], notes: 'Great for reaching into pots without wetting leaves.' },
+    care: { tips: ['Let tap water stand overnight to dissipate chlorine.'] },
+  }),
+  item('fine-mist-spray-bottle', 'Fine Mist Spray Bottle (500 ml)', 199, 249, 'gardening-tools', 'Watering Tools', 'tool', {
+    shortDescription: 'A fine mist for humidity lovers, seedlings and leaf cleaning.',
+    description: 'Adjustable nozzle with a very fine mist, ideal for seedlings, microgreens, ferns and calatheas. Also handy for applying neem oil solution.',
+    tags: ['watering', 'mist', 'humidity', 'tools', 'seedlings', 'microgreens'],
+    image: '', featured: false, rating: 4.4, numReviews: 203, popularity: 700, stock: 90,
+    compatibility: { pairsWith: ['boston-fern', 'calathea-orbifolia', 'microgreens-seed-mix'], notes: 'Mist in the morning so leaves can dry.' },
+    care: { tips: ['Do not mist fuzzy-leaved plants like African violets.'] },
+  }),
+
+  // ───────────── SOIL & FERTILIZERS ─────────────
+  item('premium-potting-mix', 'Premium Potting Mix (5 kg)', 349, 399, 'soil-fertilizers', 'Soil', 'soil', {
+    shortDescription: 'Light, airy mix of cocopeat, compost and perlite for most houseplants.',
+    description: 'A balanced, peat-free blend of cocopeat, compost and perlite. Holds moisture while draining freely – a reliable base for most indoor plants and herbs.',
+    tags: ['soil', 'potting mix', 'houseplants', 'peat free', 'well-draining'],
+    image: '', featured: true, rating: 4.6, numReviews: 261, popularity: 910, stock: 85,
+    supply: { soilFor: ['standard', 'moisture-retentive'], suitableFor: ['foliage plants', 'herbs', 'flowering plants'] },
+    compatibility: { pairsWith: ['golden-pothos', 'monstera-deliciosa', 'tulsi-holy-basil'], notes: 'Add extra perlite for succulents.' },
+    care: { tips: ['Fill the pot loosely – do not compress the soil.'] },
+  }),
+  item('cactus-succulent-mix', 'Cactus & Succulent Mix (2 kg)', 249, 299, 'soil-fertilizers', 'Soil', 'soil', {
+    shortDescription: 'Gritty, fast-draining mix that keeps roots dry between waterings.',
+    description: 'A sandy, mineral-rich mix of coarse sand, perlite and cocopeat. Prevents root rot in succulents, cacti, snake plants and ZZ plants.',
+    tags: ['soil', 'succulent mix', 'cactus', 'well-draining', 'drainage'],
+    image: '', featured: false, rating: 4.7, numReviews: 176, popularity: 640, stock: 70,
+    supply: { soilFor: ['well-draining'], suitableFor: ['succulents', 'cacti', 'snake plants'] },
+    compatibility: { pairsWith: ['aloe-vera', 'echeveria-elegans', 'snake-plant', 'terracotta-pot-set'], notes: 'The right mix matters more than anything for succulents.' },
+    care: { tips: ['Top-dress with small pebbles for a tidy look.'] },
+  }),
+  item('organic-vermicompost', 'Organic Vermicompost (5 kg)', 299, 349, 'soil-fertilizers', 'Fertilizers', 'fertilizer', {
+    shortDescription: 'Nutrient-rich worm castings that feed plants and improve soil.',
+    description: 'Mild, odour-free vermicompost for herbs, vegetables and flowering plants. Mix a handful into the top layer of soil every 4–6 weeks.',
+    tags: ['fertilizer', 'organic', 'vermicompost', 'compost', 'herbs', 'nutrients', 'feeding'],
+    image: '', featured: false, rating: 4.6, numReviews: 148, popularity: 560, stock: 80,
+    supply: { suitableFor: ['herbs', 'vegetables', 'flowering plants'] },
+    compatibility: { pairsWith: ['tulsi-holy-basil', 'curry-leaf-plant', 'hibiscus', 'wooden-balcony-planter'], notes: 'Gentle enough for edible plants.' },
+    care: { tips: ['Use a 1:4 ratio with soil when potting.'] },
+  }),
+  item('liquid-plant-food', 'All-Purpose Liquid Plant Food (250 ml)', 279, 329, 'soil-fertilizers', 'Fertilizers', 'fertilizer', {
+    shortDescription: 'Balanced NPK feed for foliage plants – dilute and water.',
+    description: 'A balanced liquid fertiliser for indoor plants. A few drops in the watering can feed foliage plants during the growing season.',
+    tags: ['fertilizer', 'liquid', 'npk', 'houseplants', 'nutrients', 'feeding', 'yellow leaves'],
+    image: '', featured: false, rating: 4.5, numReviews: 129, popularity: 480, stock: 66,
+    supply: { suitableFor: ['foliage plants', 'houseplants'] },
+    compatibility: { pairsWith: ['monstera-deliciosa', 'golden-pothos', 'peace-lily'], notes: 'Dilute to half strength for beginners.' },
+    care: { tips: ['Always water lightly first to avoid root burn.', 'Skip feeding in winter.'] },
+  }),
+
+  // ───────────── PLANT ACCESSORIES ─────────────
+  item('soil-moisture-meter', 'Soil Moisture Meter', 399, 499, 'plant-accessories', 'Care Tools', 'accessory', {
+    shortDescription: 'Stop guessing – a probe that tells you when to water.',
+    description: 'A simple analogue probe that reads soil moisture from dry to wet. A beginner-friendly cure for over- and under-watering.',
+    tags: ['moisture meter', 'watering', 'care tool', 'beginner', 'overwatering'],
+    image: '', featured: true, rating: 4.3, numReviews: 220, popularity: 590, stock: 58,
+    compatibility: { pairsWith: ['monstera-deliciosa', 'peace-lily', 'long-spout-watering-can'], notes: 'Check at root depth for best accuracy.' },
+    care: { tips: ['Wipe the probe clean after each use.', 'Readings in dense or gritty soil can vary – use as a guide.'] },
+  }),
+  item('clip-on-grow-light', 'Clip-On LED Grow Light', 899, 1099, 'plant-accessories', 'Lighting', 'accessory', {
+    shortDescription: 'Full-spectrum LED to brighten dim corners and short winter days.',
+    description: 'A flexible-neck clip light with warm and cool full-spectrum LEDs and a built-in timer. Clips to a shelf or desk and brings low-light spots to life.',
+    tags: ['grow light', 'low light', 'lighting', 'hostel friendly', 'desk'],
+    image: '', featured: false, rating: 4.4, numReviews: 133, popularity: 430, stock: 34,
+    compatibility: { pairsWith: ['golden-pothos', 'peperomia-watermelon', 'microgreens-seed-mix'], notes: 'Place 15–30 cm from the plant for 8–12 hours a day.' },
+    care: { tips: ['Use the timer for a consistent 8–12 hour light cycle.'] },
+  }),
+  item('plant-stand-3-tier', '3-Tier Wooden Plant Stand', 1499, 1799, 'plant-accessories', 'Stands & Shelves', 'accessory', {
+    shortDescription: 'Display plants at different heights and share the light.',
+    description: 'A sturdy three-tier stand in natural wood. Creates a layered display for small and medium plants and lifts them closer to the window.',
+    tags: ['plant stand', 'shelf', 'display', 'space saving'],
+    image: '', featured: false, rating: 4.5, numReviews: 74, popularity: 190, stock: 16,
+    compatibility: { pairsWith: ['peperomia-watermelon', 'haworthia-zebra', 'echeveria-elegans'], notes: 'Put the thirstiest plants on the lowest tier.' },
+    care: { tips: ['Use saucers to protect the wood from water.'] },
+  }),
+  item('neem-oil-spray', 'Neem Oil Plant Spray (250 ml)', 249, 299, 'plant-accessories', 'Pest Care', 'accessory', {
+    shortDescription: 'Natural neem-based spray against common houseplant pests.',
+    description: 'A ready-to-dilute neem oil concentrate that helps prevent and manage spider mites, aphids and mealybugs without harsh chemicals.',
+    tags: ['neem oil', 'pest control', 'organic', 'mealybugs', 'aphids', 'spider mites', 'pests'],
+    image: '', featured: false, rating: 4.5, numReviews: 167, popularity: 470, stock: 60,
+    compatibility: { pairsWith: ['fine-mist-spray-bottle', 'miniature-rose', 'monstera-deliciosa'], notes: 'Test on one leaf first and spray in the evening.' },
+    care: { tips: ['Follow label dilution; reapply every 7 days for 3 weeks.', 'Avoid spraying in direct sunlight.'] },
+  }),
+];
